@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import useQuiosco from "../hooks/useQuiosco"
 import clienteAxios from "../config/axios";
+import { mediaUrl } from "../helpers";
 import { useNavigate } from "react-router-dom";
 
 export default function NuevaCategoria() {
@@ -186,7 +187,7 @@ export default function NuevaCategoria() {
                             >
                                 <div className="flex items-center space-x-3">
                                     {categoria.icono && (
-                                        <img src={`http://localhost:8000/${categoria.icono}`}
+                                        <img src={mediaUrl(categoria.icono)}
                                         alt={categoria.nombre}
                                         className="w-8 h-8 object-contain"
                                         />

@@ -16,7 +16,8 @@ class AuthController extends Controller
         $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'password' => bcrypt($data['password']),
+            // El modelo ya cifra password con el cast "hashed".
+            'password' => $data['password'],
         ]);
 
         return[
@@ -44,7 +45,7 @@ class AuthController extends Controller
 //al salir el usuario se vacia o queda nulo
     public function logout(Request $request){
         $user = $request->user();
-        $user->currentAccessToke()->delete();
+        $user->currentAccessToken()?->delete();
         return[
             'user' =>null
         ];

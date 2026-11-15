@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import clienteAxios from "../config/axios";
-import useQuiosco from "../hooks/useQuiosco";
+import { mediaUrl } from "../helpers";
 
 
 
@@ -92,7 +92,9 @@ export default function Inventario() {
                                 {prod.imagen ? (
                                     <img
                                         alt={`imagen ${prod.nombre}`}
-                                        src={`http://localhost:8000/storage/productos/${prod.imagen}`}
+                                        src={/\.(jpe?g|png|webp|gif)$/i.test(prod.imagen)
+                                            ? mediaUrl(`/storage/productos/${prod.imagen}`)
+                                            : `/img/${prod.imagen}.jpg`}
                                         className="w-16 h-16 objecto-cover rounded" />
 
                                 ) : (

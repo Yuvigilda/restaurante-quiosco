@@ -16,21 +16,21 @@ class CategoriaSeeder extends Seeder
     {
         DB::table('categorias')->insert([
             'nombre' => 'Café',
-            'icono' => 'cafe',
+            'icono' => 'img/cafe-1788797222.png',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
 
         DB::table('categorias')->insert([
             'nombre' => 'Hamburguesas',
-            'icono' => 'hamburguesa',
+            'icono' => 'img/hamburguesas-1788797251.png',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
 
         DB::table('categorias')->insert([
             'nombre' => 'Pizzas',
-            'icono' => 'pizza',
+            'icono' => 'img/pizzas-1788796858.png',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);

@@ -1,7 +1,7 @@
 
 
 import useQuiosco from "../hooks/useQuiosco";
-import { formatearDinero } from "../helpers";
+import { formatearDinero, mediaUrl } from "../helpers";
 import { useState, useEffect } from "react";
 
 
@@ -31,7 +31,7 @@ export default function ModalProdcuto(
     return (
         <div className="md:flex gap-10 max-w-3xl">
             <div className="md:w-1/3">
-                <img src={src}  onError={() => setSrc(`http://localhost:8000/storage/productos/${imagen}`)} alt={`imagen producto ${producto.nombre}`} />
+                <img src={src}  onError={() => setSrc(mediaUrl(`/storage/productos/${imagen}`))} alt={`imagen producto ${producto.nombre}`} />
                  
                  {/* <img src={producto.imagen} alt={`imagen ${producto.nombre}`} /> */}
             </div>

@@ -1,5 +1,6 @@
 
 import useQuiosco from "../hooks/useQuiosco"
+import { mediaUrl } from "../helpers"
 
 export default function Categoria({categoria}){ //destructuring extrae de props la propiedad categoria 
 
@@ -17,6 +18,6 @@ export default function Categoria({categoria}){ //destructuring extrae de props 
 
         
 
-        <button type="button" onClick={()=> handleClickCategoria(id)} className={`${resaltarCategoriaActual()} flex items-center gap-4 border w-full p-3 hover:bg-amber-400 cursor-pointer`}><img src={`http://localhost:8000/${icono}`} alt="imagen icono" className="w-12" /><p className="text-lg font-bold">{nombre}</p></button>
+        <button type="button" onClick={()=> handleClickCategoria(id)} className={`${resaltarCategoriaActual()} flex items-center gap-4 border w-full p-3 hover:bg-amber-400 cursor-pointer`}><img src={mediaUrl(icono)} alt="imagen icono" className="w-12" /><p className="text-lg font-bold">{nombre}</p></button>
     )
 }

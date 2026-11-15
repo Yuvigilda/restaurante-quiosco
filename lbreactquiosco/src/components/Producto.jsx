@@ -1,6 +1,6 @@
 
 
-import { formatearDinero } from "../helpers"
+import { formatearDinero, mediaUrl } from "../helpers"
 import useQuiosco from "../hooks/useQuiosco"
 import { useState } from "react";
 
@@ -13,7 +13,7 @@ export default function Producto({ producto, botonAgregar = false, botonDisponib
             <img
                 src={src}
                 alt={`imagen ${producto.nombre}`}
-                onError={() => setSrc(`http://localhost:8000/storage/productos/${imagen}`)}
+                onError={() => setSrc(mediaUrl(`/storage/productos/${imagen}`))}
                 className="w-full object-cover h-78" />
 
 
