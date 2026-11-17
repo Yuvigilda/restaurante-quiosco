@@ -11,6 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
+        if (Schema::hasColumn('users', 'admin')) {
+            return;
+        }
+
         Schema::table('users', function (Blueprint $table) {
             $table->boolean('admin')->default(0);
         });

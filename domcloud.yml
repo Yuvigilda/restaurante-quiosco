@@ -24,30 +24,30 @@ nginx:
       try_files: $uri =404
 
 commands:
-  - cd lblaravelquiosco && (test -f .env || cp .env.example .env)
-  - cd lblaravelquiosco && sed -ri "s/APP_ENV=.*/APP_ENV=production/g" .env
-  - cd lblaravelquiosco && sed -ri "s/APP_DEBUG=.*/APP_DEBUG=false/g" .env
-  - cd lblaravelquiosco && sed -ri "s|APP_URL=.*|APP_URL=https://${DOMAIN}|g" .env
-  - cd lblaravelquiosco && sed -ri "s/(# )?DB_CONNECTION=.*/DB_CONNECTION=mysql/g" .env
-  - cd lblaravelquiosco && sed -ri "s/(# )?DB_HOST=.*/DB_HOST=localhost/g" .env
-  - cd lblaravelquiosco && sed -ri "s/(# )?DB_PORT=.*/DB_PORT=3306/g" .env
-  - cd lblaravelquiosco && sed -ri "s/(# )?DB_DATABASE=.*/DB_DATABASE=${DATABASE}/g" .env
-  - cd lblaravelquiosco && sed -ri "s/(# )?DB_USERNAME=.*/DB_USERNAME=${USERNAME}/g" .env
-  - cd lblaravelquiosco && sed -ri "s/(# )?DB_PASSWORD=.*/DB_PASSWORD=${MYPASSWD}/g" .env
-  - cd lblaravelquiosco && (grep -q '^ADMIN_EMAIL=' .env || printf '\nADMIN_NAME=Administrador\nADMIN_EMAIL=admin@%s\nADMIN_PASSWORD=CAMBIA-ESTA-CLAVE1+\n' "${DOMAIN}" >> .env)
-  - cd lblaravelquiosco && composer install --no-dev --optimize-autoloader --no-interaction
-  - cd lblaravelquiosco && (grep -q '^APP_KEY=base64:' .env || php artisan key:generate --force)
-  - cd lblaravelquiosco && php artisan migrate --force
-  - cd lblaravelquiosco && php artisan db:seed --force
-  - cd lblaravelquiosco && (php artisan storage:link || true)
-  - cd lblaravelquiosco && chmod 0750 -R storage bootstrap/cache || true
-  - printf 'VITE_API_URL=https://%s\n' "${DOMAIN}" > lbreactquiosco/.env.production
-  - cd lbreactquiosco && npm ci
-  - cd lbreactquiosco && npm run build
-  - rm -rf lblaravelquiosco/public/assets
-  - mkdir -p lblaravelquiosco/public/assets lblaravelquiosco/public/img
-  - cp -a lbreactquiosco/dist/assets/. lblaravelquiosco/public/assets/
-  - cp -a lbreactquiosco/dist/img/. lblaravelquiosco/public/img/
-  - cp -f lbreactquiosco/dist/index.html lblaravelquiosco/public/index.html
-  - cp -f lbreactquiosco/dist/*.svg lblaravelquiosco/public/ || true
-  - rm -rf lbreactquiosco/node_modules
+  - cd "$HOME/public_html/lblaravelquiosco" && (test -f .env || cp .env.example .env)
+  - cd "$HOME/public_html/lblaravelquiosco" && sed -ri "s/APP_ENV=.*/APP_ENV=production/g" .env
+  - cd "$HOME/public_html/lblaravelquiosco" && sed -ri "s/APP_DEBUG=.*/APP_DEBUG=false/g" .env
+  - cd "$HOME/public_html/lblaravelquiosco" && sed -ri "s|APP_URL=.*|APP_URL=https://${DOMAIN}|g" .env
+  - cd "$HOME/public_html/lblaravelquiosco" && sed -ri "s/(# )?DB_CONNECTION=.*/DB_CONNECTION=mysql/g" .env
+  - cd "$HOME/public_html/lblaravelquiosco" && sed -ri "s/(# )?DB_HOST=.*/DB_HOST=localhost/g" .env
+  - cd "$HOME/public_html/lblaravelquiosco" && sed -ri "s/(# )?DB_PORT=.*/DB_PORT=3306/g" .env
+  - cd "$HOME/public_html/lblaravelquiosco" && sed -ri "s/(# )?DB_DATABASE=.*/DB_DATABASE=${DATABASE}/g" .env
+  - cd "$HOME/public_html/lblaravelquiosco" && sed -ri "s/(# )?DB_USERNAME=.*/DB_USERNAME=${USERNAME}/g" .env
+  - cd "$HOME/public_html/lblaravelquiosco" && sed -ri "s/(# )?DB_PASSWORD=.*/DB_PASSWORD=${MYPASSWD}/g" .env
+  - cd "$HOME/public_html/lblaravelquiosco" && (grep -q '^ADMIN_EMAIL=' .env || printf '\nADMIN_NAME=Administrador\nADMIN_EMAIL=admin@%s\nADMIN_PASSWORD=CAMBIA-ESTA-CLAVE1+\n' "${DOMAIN}" >> .env)
+  - cd "$HOME/public_html/lblaravelquiosco" && composer install --no-dev --optimize-autoloader --no-interaction
+  - cd "$HOME/public_html/lblaravelquiosco" && (grep -q '^APP_KEY=base64:' .env || php artisan key:generate --force)
+  - cd "$HOME/public_html/lblaravelquiosco" && php artisan migrate --force
+  - cd "$HOME/public_html/lblaravelquiosco" && php artisan db:seed --force
+  - cd "$HOME/public_html/lblaravelquiosco" && (php artisan storage:link || true)
+  - cd "$HOME/public_html/lblaravelquiosco" && chmod 0750 -R storage bootstrap/cache || true
+  - cd "$HOME/public_html" && printf 'VITE_API_URL=https://%s\n' "${DOMAIN}" > lbreactquiosco/.env.production
+  - cd "$HOME/public_html/lbreactquiosco" && npm ci
+  - cd "$HOME/public_html/lbreactquiosco" && npm run build
+  - cd "$HOME/public_html" && rm -rf lblaravelquiosco/public/assets
+  - cd "$HOME/public_html" && mkdir -p lblaravelquiosco/public/assets lblaravelquiosco/public/img
+  - cd "$HOME/public_html" && cp -a lbreactquiosco/dist/assets/. lblaravelquiosco/public/assets/
+  - cd "$HOME/public_html" && cp -a lbreactquiosco/dist/img/. lblaravelquiosco/public/img/
+  - cd "$HOME/public_html" && cp -f lbreactquiosco/dist/index.html lblaravelquiosco/public/index.html
+  - cd "$HOME/public_html" && cp -f lbreactquiosco/dist/*.svg lblaravelquiosco/public/ || true
+  - cd "$HOME/public_html" && rm -rf lbreactquiosco/node_modules
