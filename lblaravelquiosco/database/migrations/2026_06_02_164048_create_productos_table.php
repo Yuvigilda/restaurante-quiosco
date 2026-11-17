@@ -11,14 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
+        if (Schema::hasTable('productos')) {
+            return;
+        }
+
         Schema::create('productos', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
             $table->double('precio');
             $table->string('imagen');
             $table->boolean('disponible')->default(1);
-            $table->foreignId('categoria_id')->constrained()->onDelete('cascade');
-            
+            $table->foreignId('categoria_id');
             $table->timestamps();
         });
     }
