@@ -39,7 +39,7 @@ VITE_API_URL=http://127.0.0.1:8000
 
 ## Despliegue en DOM Cloud
 
-1. Sube estos cambios a `main` en GitHub.
+1. El código está en https://github.com/Yuvigilda/restaurante-quiosco, rama `main`.
 2. En DOM Cloud abre el sitio, entra a **Setup → Deploy** y crea una tarea.
 3. Borra el script que haya y pega el contenido de `domcloud.yml`.
 4. En esa tarea cambia `CAMBIA-ESTA-CLAVE1+` por una contraseña tuya. Debe tener al menos 8 caracteres, una letra, un número y un símbolo.

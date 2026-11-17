@@ -5,7 +5,7 @@
 # Antes de pegarlo, cambia ADMIN_PASSWORD. Minimo 8 caracteres, con letra,
 # numero y simbolo. El correo del administrador queda como admin@TU-DOMINIO.
 
-source: https://github.com/Yuvigilda/restaurantlb
+source: https://github.com/Yuvigilda/restaurante-quiosco
 
 features:
   - mysql
